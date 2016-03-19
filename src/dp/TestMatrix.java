@@ -40,8 +40,8 @@ public class TestMatrix {
 		        nodeList.add(o);
 		        
 		        
-		        long startTime = System.currentTimeMillis();
-		        int[][] ary = new int[10000][16];
+		       
+		        int[][] ary = new int[200000][16];
 		        for (int x = 0; x<ary.length; x++){
 		        	for(int y =0; y<8; y++){
 		        		ary[x][y] = 0; 
@@ -72,7 +72,9 @@ public class TestMatrix {
 		    	
 		    	
 		        int x=1;
-				while( x < ary.length){
+		        int size = ary.length;
+		        long startTime = System.currentTimeMillis();
+				while( x < size){
 					int[] allNodeA = ary[1];
 					int[] allNodeB = ary[x];
 					
@@ -84,7 +86,7 @@ public class TestMatrix {
 						
 					}
 					
-					int[] ancA = DolloP.getDolloP(a, nameA, allNodeA);
+				int[] ancA = DolloP.getDolloP2(a, nameA, allNodeA);
 			        System.out.print("ancestral of A:");
 			        for(int value: ancA){
 			        	System.out.print(value +",");
@@ -92,7 +94,7 @@ public class TestMatrix {
 			        System.out.print("\n");
 			        
 			        System.out.print("ancestral of B:");
-			        int[] ancB = DolloP.getDolloP(a, nameB, allNodeB);
+			        int[] ancB = DolloP.getDolloP2(a, nameB, allNodeB);
 			        for(int value: ancB){
 			        	System.out.print(value +",");
 			        	}       
@@ -108,10 +110,9 @@ public class TestMatrix {
 		        
 		       long endTime =System.currentTimeMillis();
 		       System.out.println("Time:" + (endTime-startTime)/1000);
-		        
+		       
 		        
 		        
 		 }
-}      
-		        
+}         
 		        
